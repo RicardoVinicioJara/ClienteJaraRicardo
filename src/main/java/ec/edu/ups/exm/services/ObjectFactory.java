@@ -27,8 +27,10 @@ public class ObjectFactory {
     private final static QName _Producto_QNAME = new QName("http://services.exm.ups.edu.ec/", "producto");
     private final static QName _MiCarrito_QNAME = new QName("http://services.exm.ups.edu.ec/", "miCarrito");
     private final static QName _LlenarCarritoResponse_QNAME = new QName("http://services.exm.ups.edu.ec/", "llenarCarritoResponse");
+    private final static QName _AddCarritoResponse_QNAME = new QName("http://services.exm.ups.edu.ec/", "addCarritoResponse");
     private final static QName _CrearProductoResponse_QNAME = new QName("http://services.exm.ups.edu.ec/", "crearProductoResponse");
     private final static QName _MiCarritoResponse_QNAME = new QName("http://services.exm.ups.edu.ec/", "miCarritoResponse");
+    private final static QName _AddCarrito_QNAME = new QName("http://services.exm.ups.edu.ec/", "addCarrito");
     private final static QName _CrearProducto_QNAME = new QName("http://services.exm.ups.edu.ec/", "crearProducto");
     private final static QName _ListaProductosResponse_QNAME = new QName("http://services.exm.ups.edu.ec/", "listaProductosResponse");
     private final static QName _Carro_QNAME = new QName("http://services.exm.ups.edu.ec/", "carro");
@@ -107,6 +109,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link AddCarrito }
+     * 
+     */
+    public AddCarrito createAddCarrito() {
+        return new AddCarrito();
+    }
+
+    /**
+     * Create an instance of {@link AddCarritoResponse }
+     * 
+     */
+    public AddCarritoResponse createAddCarritoResponse() {
+        return new AddCarritoResponse();
+    }
+
+    /**
      * Create an instance of {@link CrearProductoResponse }
      * 
      */
@@ -150,6 +168,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link AddCarritoResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://services.exm.ups.edu.ec/", name = "addCarritoResponse")
+    public JAXBElement<AddCarritoResponse> createAddCarritoResponse(AddCarritoResponse value) {
+        return new JAXBElement<AddCarritoResponse>(_AddCarritoResponse_QNAME, AddCarritoResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link CrearProductoResponse }{@code >}}
      * 
      */
@@ -165,6 +192,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://services.exm.ups.edu.ec/", name = "miCarritoResponse")
     public JAXBElement<MiCarritoResponse> createMiCarritoResponse(MiCarritoResponse value) {
         return new JAXBElement<MiCarritoResponse>(_MiCarritoResponse_QNAME, MiCarritoResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link AddCarrito }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://services.exm.ups.edu.ec/", name = "addCarrito")
+    public JAXBElement<AddCarrito> createAddCarrito(AddCarrito value) {
+        return new JAXBElement<AddCarrito>(_AddCarrito_QNAME, AddCarrito.class, null, value);
     }
 
     /**
