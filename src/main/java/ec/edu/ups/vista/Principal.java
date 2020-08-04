@@ -451,6 +451,7 @@ public class Principal extends javax.swing.JFrame {
                 c.setProducto(p);
                 String res = port.addCarrito(c);
                 llenarTablla();
+                //Final
             }
         }
     }//GEN-LAST:event_jButton5ActionPerformed
