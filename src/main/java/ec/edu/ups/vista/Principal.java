@@ -80,7 +80,7 @@ public class Principal extends javax.swing.JFrame {
             modelo.removeRow(0);
         }
     }
-    
+
     public void limpiarTabla2() {
         DefaultTableModel modelo = (DefaultTableModel) tabla2.getModel();
         while (modelo.getRowCount() > 0) {
@@ -380,10 +380,7 @@ public class Principal extends javax.swing.JFrame {
         p.setPrecio(Double.parseDouble(txtPrecio.getText()));
         p.setStock(Integer.parseInt(txtStock.getText()));
         String res = port.crearProducto(p);
-        if(res.equals("Producto ingresado")){
-            JOptionPane.showMessageDialog(this, res);
-            llenarTablla();
-        }
+        JOptionPane.showMessageDialog(this, res);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -405,13 +402,13 @@ public class Principal extends javax.swing.JFrame {
         for (Carro c : listaCarros) {
             System.out.println(c.getProducto().getNombre());
         }
-        if(!listaCarros.isEmpty()){
+        if (!listaCarros.isEmpty()) {
             System.out.println("Invoking llenarCarrito...");
-        String res = port.llenarCarrito(listaCarros);
-        System.out.println("llenarCarrito.result=" + res);
-        if(res.equals("Compra almacenada")){
-            JOptionPane.showMessageDialog(this, res);
-        }
+            String res = port.llenarCarrito(listaCarros);
+            System.out.println("llenarCarrito.result=" + res);
+            if (res.equals("Compra almacenada")) {
+                JOptionPane.showMessageDialog(this, res);
+            }
         }
         llenarTablla();
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -419,11 +416,11 @@ public class Principal extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         System.out.println(txtBuscaCarrito.getText());
         limpiarTabla2();
-        List<Carro> milista  = port.miCarrito(txtBuscaCarrito.getText());
+        List<Carro> milista = port.miCarrito(txtBuscaCarrito.getText());
         for (Carro carro : milista) {
             System.out.println(carro.getProducto().getPrecio());
         }
-        double  total = 0;
+        double total = 0;
         if (milista != null) {
             DefaultTableModel model = (DefaultTableModel) tabla2.getModel();
             int index = 0;
@@ -434,13 +431,12 @@ public class Principal extends javax.swing.JFrame {
             }
         }
         lblCodigo.setText(milista.get(0).getCodigocompra());
-        lblTotoal.setText(total+"");
+        lblTotoal.setText(total + "");
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        
-        
-         int fila = tabla.getSelectedRow();
+
+        int fila = tabla.getSelectedRow();
         int codigo = Integer.valueOf(tabla.getValueAt(fila, 0).toString());
         for (Producto p : lista) {
             if (p.getId().equals(codigo)) {
